@@ -1,5 +1,7 @@
 export class ContaCorrente {
     agencia;
+    cliente;
+
     _saldo = 0;
 
     sacar(valor){
@@ -14,5 +16,10 @@ export class ContaCorrente {
             return
         }
         this._saldo += valor;
+    }
+
+    transferir(valor, conta){
+        const valorSacado = this.sacar(valor);
+        conta.depositar(valorSacado);
     }
 }
